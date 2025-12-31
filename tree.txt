@@ -1,0 +1,140 @@
+blackroses/
+├── .env.example
+├── .gitignore (exists)
+├── LICENSE (exists)
+├── README.md (exists)
+├── docker-compose.yml (exists)
+├── docker-compose.dev.yml
+├── docker-compose.prod.yml
+├── ARCHITECTURE.md
+│
+├── frontend/
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── next.config.js
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── postcss.config.js
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── globals.css
+│   │   │   ├── architecture/
+│   │   │   │   └── page.tsx
+│   │   │   ├── compliance/
+│   │   │   │   └── page.tsx
+│   │   │   ├── frameworks/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── builder/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [frameworkCode]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── controls/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── builder/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [controlId]/
+│   │   │   │       └── page.tsx
+│   │   │   ├── policies/
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── create/
+│   │   │   │       └── page.tsx
+│   │   │   ├── approvals/
+│   │   │   │   └── page.tsx
+│   │   │   ├── evidence/
+│   │   │   │   └── page.tsx
+│   │   │   ├── risk/
+│   │   │   │   └── page.tsx
+│   │   │   ├── admin/
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── settings/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── users/
+│   │   │   │       └── page.tsx
+│   │   │   └── reports/
+│   │   │       └── page.tsx
+│   │   ├── components/
+│   │   │   ├── shared/
+│   │   │   │   ├── Sidebar.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── Modal.tsx
+│   │   │   │   └── Card.tsx
+│   │   │   ├── compliance/
+│   │   │   │   ├── ControlTable.tsx
+│   │   │   │   └── ComplianceStatus.tsx
+│   │   │   ├── frameworks/
+│   │   │   │   └── FrameworkCard.tsx
+│   │   │   └── approvals/
+│   │   │       └── ApprovalPanel.tsx
+│   │   ├── hooks/
+│   │   │   ├── useCompliance.ts
+│   │   │   ├── useControls.ts
+│   │   │   └── useAuth.ts
+│   │   ├── lib/
+│   │   │   ├── api.ts
+│   │   │   ├── types.ts
+│   │   │   └── utils.ts
+│   │   ├── store/
+│   │   │   └── complianceStore.ts
+│   │   └── styles/
+│   │       └── nca-theme.css
+│   └── public/
+│       └── logo.svg
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── requirements.txt
+│   ├── requirements-dev.txt
+│   ├── alembic.ini
+│   ├── pytest.ini
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── dependencies.py
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── framework.py
+│   │   │   ├── control.py
+│   │   │   ├── policy.py
+│   │   │   ├── evidence.py
+│   │   │   ├── approval.py
+│   │   │   └── risk.py
+│   │   ├── schemas/
+│   │   │   ├── __init__.py
+│   │   │   ├── framework.py
+│   │   │   ├── control.py
+│   │   │   └── policy.py
+│   │   ├── api/
+│   │   │   ├── __init__.py
+│   │   │   ├── frameworks.py
+│   │   │   ├── controls.py
+│   │   │   ├── policies.py
+│   │   │   ├── evidence.py
+│   │   │   └── approvals.py
+│   │   └── services/
+│   │       ├── __init__.py
+│   │       ├── kafka_producer.py
+│   │       └── evidence_service.py
+│   └── alembic/
+│       ├── env.py
+│       ├── script.py.mako
+│       └── versions/
+│           └── .gitkeep
+│
+└── infrastructure/
+    ├── postgres/
+    │   └── init.sql
+    ├── kafka/
+    │   └── .gitkeep
+    ├── ksqldb/
+    │   └── .gitkeep
+    ├── elasticsearch/
+    │   └── .gitkeep
+    └── minio/
+        └── .gitkeep
