@@ -1,0 +1,64 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black Rose Logo for BlackRoses GRC Platform -->
+  
+  <!-- Outer Circle - NCA Green -->
+  ircle cx="100" cy="100" r="95" fill="#006C35" opacity="0.1"/>
+  
+  <!-- Rose Petals -->
+  <g transform="translate(100, 100)">
+    <!-- Center of rose -->
+    ircle cx="0" cy="0" r="8" fill="#1a1a1a"/>
+    
+    <!-- Inner petals (darker) -->
+    <ellipse cx="-8" cy="-3" rx="12" ry="18" fill="#2d2d2d" transform="rotate(-20)"/>
+    <ellipse cx="8" cy="-3" rx="12" ry="18" fill="#2d2d2d" transform="rotate(20)"/>
+    <ellipse cx="0" cy="10" rx="12" ry="18" fill="#2d2d2d" transform="rotate(0)"/>
+    
+    <!-- Outer petals (lighter black/dark gray) -->
+    <ellipse cx="-18" cy="-8" rx="16" ry="24" fill="#404040" transform="rotate(-40)"/>
+    <ellipse cx="18" cy="-8" rx="16" ry="24" fill="#404040" transform="rotate(40)"/>
+    <ellipse cx="-12" cy="15" rx="16" ry="24" fill="#404040" transform="rotate(-15)"/>
+    <ellipse cx="12" cy="15" rx="16" ry="24" fill="#404040" transform="rotate(15)"/>
+    <ellipse cx="0" cy="-20" rx="16" ry="24" fill="#404040" transform="rotate(0)"/>
+  </g>
+  
+  <!-- Stem -->
+  <rect x="95" y="145" width="10" height="50" fill="#006C35" rx="2"/>
+  
+  <!-- Leaves -->
+  <ellipse cx="85" cy="160" rx="15" ry="8" fill="#006C35" transform="rotate(-30 85 160)"/>
+  <ellipse cx="115" cy="175" rx="15" ry="8" fill="#006C35" transform="rotate(30 115 175)"/>
+  
+  <!-- Shield outline (GRC Platform) -->
+  <path d="M 100 20 L 140 40 L 140 80 Q 140 120 100 140 Q 60 120 60 80 L 60 40 Z" 
+        fill="none" 
+        stroke="#006C35" 
+        stroke-width="3" 
+        opacity="0.5"/>
+  
+  <!-- Checkmark inside shield (Compliance) -->
+  <path d="M 85 75 L 95 85 L 115 55" 
+        fill="none" 
+        stroke="#C4A962" 
+        stroke-width="4" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Text -->
+  <text x="100" y="210" 
+        font-family="Arial, sans-serif" 
+        font-size="16" 
+        font-weight="bold" 
+        text-anchor="middle" 
+        fill="#006C35">
+    BlackRoses
+  </text>
+  
+  <text x="100" y="225" 
+        font-family="Arial, sans-serif" 
+        font-size="10" 
+        text-anchor="middle" 
+        fill="#666666">
+    GRC PLATFORM
+  </text>
+</svg>

@@ -1,0 +1,440 @@
+/* 
+ * NCA Saudi Arabia Official Theme
+ * National Cybersecurity Authority Color Palette
+ */
+
+:root {
+  /* NCA Official Colors */
+  --nca-primary: #006C35;        /* Saudi Green */
+  --nca-secondary: #C4A962;      /* Gold Accent */
+  --nca-white: #FFFFFF;
+  --nca-light-gray: #F5F5F5;
+  --nca-gray: #E0E0E0;
+  --nca-dark-gray: #2C2C2C;
+  --nca-text: #333333;
+
+  /* Status Colors - 3-State Compliance System */
+  --status-implemented: #4CAF50;      /* Green - Policy + Control */
+  --status-partial: #FF9800;          /* Orange - Missing One */
+  --status-not-implemented: #F44336;  /* Red - Missing Both */
+  --status-pending: #2196F3;          /* Blue - Awaiting Decision */
+
+  /* Severity Colors */
+  --severity-critical: #D32F2F;
+  --severity-high: #F57C00;
+  --severity-medium: #FBC02D;
+  --severity-low: #757575;
+
+  /* Typography */
+  --font-primary: 'IBM Plex Sans Arabic', 'Segoe UI', 'Tahoma', sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --font-size-base: 14px;
+  --font-size-heading: 24px;
+  --font-size-small: 12px;
+}
+
+/* Global Resets */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--nca-white);
+  color: var(--nca-text);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--nca-primary) 0%, #004D26 100%);
+  color: var(--nca-white);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--nca-light-gray);
+  border-right: 1px solid var(--nca-gray);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.sidebar a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Cards */
+.card {
+  background: var(--nca-white);
+  border: 1px solid var(--nca-gray);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Buttons */
+.button-primary {
+  background-color: var(--nca-primary);
+  color: var(--nca-white);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: var(--font-size-base);
+}
+
+.button-primary:hover {
+  background-color: #005028;
+}
+
+.button-primary:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.button-secondary {
+  background-color: var(--nca-secondary);
+  color: var(--nca-white);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-secondary:hover {
+  background-color: #a08850;
+}
+
+/* Status Badges - 3-State System */
+.badge-implemented {
+  background-color: var(--status-implemented);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.badge-partial {
+  background-color: var(--status-partial);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.badge-not-implemented {
+  background-color: var(--status-not-implemented);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.badge-pending {
+  background-color: var(--status-pending);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-base);
+}
+
+.table th {
+  background-color: var(--nca-light-gray);
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--nca-gray);
+  color: var(--nca-dark-gray);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--nca-gray);
+  color: var(--nca-text);
+}
+
+.table tr:hover {
+  background-color: var(--nca-light-gray);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--nca-primary);
+  box-shadow: 0 0 0 3px rgba(0, 108, 53, 0.1);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nca-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nca-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nca-dark-gray);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid var(--nca-light-gray);
+  border-top: 3px solid var(--nca-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--nca-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--nca-primary);
+  transition: width 0.3s ease;
+}
+
+/* Tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: var(--nca-dark-gray);
+  color: var(--nca-white);
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+}
+
+.alert-success {
+  background-color: #E8F5E9;
+  border-color: var(--status-implemented);
+  color: #2E7D32;
+}
+
+.alert-warning {
+  background-color: #FFF3E0;
+  border-color: var(--status-partial);
+  color: #E65100;
+}
+
+.alert-error {
+  background-color: #FFEBEE;
+  border-color: var(--status-not-implemented);
+  color: #C62828;
+}
+
+.alert-info {
+  background-color: #E3F2FD;
+  border-color: var(--status-pending);
+  color: #1565C0;
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] .sidebar {
+  border-right: none;
+  border-left: 1px solid var(--nca-gray);
+}
+
+[dir="rtl"] .table th,
+[dir="rtl"] .table td {
+  text-align: right;
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .header,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  .card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.transition {
+  transition: all 0.3s ease;
+}

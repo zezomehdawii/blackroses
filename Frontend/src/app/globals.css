@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* NCA Official Colors */
+  --nca-primary: #006C35;
+  --nca-secondary: #C4A962;
+  --nca-white: #FFFFFF;
+  --nca-light-gray: #F5F5F5;
+  --nca-gray: #E0E0E0;
+  --nca-dark-gray: #2C2C2C;
+  --nca-text: #333333;
+
+  /* Status Colors */
+  --status-implemented: #4CAF50;
+  --status-partial: #FF9800;
+  --status-not-implemented: #F44336;
+  --status-pending: #2196F3;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
+  background-color: var(--nca-white);
+  color: var(--nca-text);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nca-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nca-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nca-dark-gray);
+}
+
+/* Utility Classes */
+.card {
+  background: var(--nca-white);
+  border: 1px solid var(--nca-gray);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.button-primary {
+  background-color: var(--nca-primary);
+  color: var(--nca-white);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: #005028;
+}
+
+.button-secondary {
+  background-color: var(--nca-secondary);
+  color: var(--nca-white);
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-secondary:hover {
+  background-color: #a08850;
+}
+
+/* Status Badges */
+.badge-implemented {
+  background-color: var(--status-implemented);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-partial {
+  background-color: var(--status-partial);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-not-implemented {
+  background-color: var(--status-not-implemented);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-pending {
+  background-color: var(--status-pending);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--nca-primary) 0%, #004D26 100%);
+  color: var(--nca-white);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--nca-light-gray);
+  border-right: 1px solid var(--nca-gray);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: var(--nca-light-gray);
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--nca-gray);
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--nca-gray);
+}
+
+.table tr:hover {
+  background-color: var(--nca-light-gray);
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] .sidebar {
+  border-right: none;
+  border-left: 1px solid var(--nca-gray);
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 3px solid var(--nca-light-gray);
+  border-top: 3px solid var(--nca-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

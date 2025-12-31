@@ -1,4 +1,4 @@
-# 🌹 BlackRoses
+# BlackRoses
 
 **Enterprise GRC Platform** - Governance, Risk & Compliance Automation with Multi-Framework Support
 
@@ -9,7 +9,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Features](#key-features)
@@ -23,7 +23,7 @@
 
 ---
 
-## 🎯 Overview
+## Overview
 
 BlackRoses is a production-ready, enterprise-grade GRC (Governance, Risk & Compliance) platform designed to automate compliance monitoring, risk management, and governance workflows across multiple regulatory frameworks.
 
