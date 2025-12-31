@@ -103,4 +103,82 @@ BlackRoses is an enterprise-grade GRC (Governance, Risk & Compliance) platform b
 ---
 
 ## System Architecture Diagram
+┌─────────────────────────────────────────────────────────────────┐
+│ Frontend (Next.js 14) │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │Dashboard │ │Compliance│ │ Controls │ │Approvals │ │
+│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+└────────────────────────┬────────────────────────────────────────┘
+│ HTTP/REST + WebSocket
+┌────────────────────────┴────────────────────────────────────────┐
+│ Backend (FastAPI) │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │FrameworksAPI ControlsAPI │PoliciesAPI│EvidenceAPI│ │
+│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+└─────┬──────────┬──────────┬──────────┬──────────┬──────────────┘
+│ │ │ │ │
+┌─────▼──────────▼──────────▼──────────▼──────────▼──────────────┐
+│ PostgreSQL 16 │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
+│ │Frameworks│ │ Controls │ │ Policies │ │ Evidence │ │
+│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+└──────────────────────────────────────────────────────────────────┘
 
+┌──────────────────────────────────────────────────────────────────┐
+│ Apache Kafka (Event Stream) │
+│ ┌──────────────────┐ ┌──────────────────┐ │
+│ │controls.*.scans │ │notifications.alerts │
+│ └──────────────────┘ └──────────────────┘ │
+└────────────┬─────────────────────┬───────────────────────────────┘
+│ │
+┌────────────▼────────┐ ┌────────▼─────────┐
+│ KSQL Engine │ │ ElastAlert │
+│ (3-State Decisions) │ │ (Notifications) │
+└─────────────────────┘ └──────────────────┘
+
+┌──────────────────────────────────────────────────────────────────┐
+│ Supporting Services │
+│ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ │
+│ │Elasticsearch │ │ MinIO │ │ Ollama │ │
+│ │ (Search) │ │ (Evidence) │ │ (AI Models) │ │
+│ └──────────────┘ └──────────────┘ └──────────────┘ │
+└──────────────────────────────────────────────────────────────────┘
+
+
+---
+
+## Data Flow
+
+### 1. Control Scan Result Processing
+Agent Scan → Kafka Topic (controls.windows.scans)
+↓
+KSQL Stream Processing
+↓
+3-State Decision Logic
+↓
+PostgreSQL (control_status)
+↓
+Frontend (WebSocket Update)
+
+### 2. Evidence Upload Flow
+User Upload → FastAPI (evidence API)
+↓
+SHA256 Hash Calculation
+↓
+MinIO Storage (WORM)
+↓
+PostgreSQL (metadata + hash)
+↓
+Elasticsearch (indexing)
+
+### 3. Multi-Level Approval Workflow
+
+Control Status Change → Approval Queue (PostgreSQL)
+↓
+Level 1 Approver (Compliance Manager)
+↓
+Level 2 Approver (CISO)
+↓
+Kafka Audit Log (immutable)
+↓
+Status: Approved/Rejected
